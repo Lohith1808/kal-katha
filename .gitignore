@@ -1,0 +1,8 @@
+# Godot 4+ engine cache and runtime directories
+.godot/
+*.translation
+
+# OS metadata
+.DS_Store
+Thumbs.db
+*.tmp
