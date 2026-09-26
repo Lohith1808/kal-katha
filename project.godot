@@ -8,7 +8,7 @@ config_version=5
 
 config/name="Kal Katha"
 config/description="An educational 2D history game."
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/ui/home_screen.tscn"
 config/features=PackedStringArray("4.3")
 
 [display]

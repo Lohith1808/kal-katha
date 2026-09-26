@@ -1,0 +1,284 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/home_screen.gd" id="1_home"]
+[ext_resource type="PackedScene" path="res://scenes/ui/components/historical_menu_button.tscn" id="2_hbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frame"]
+bg_color = Color(0.07, 0.08, 0.09, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.18, 0.15, 0.8)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_showcase"]
+bg_color = Color(0.07, 0.08, 0.1, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25, 0.22, 0.18, 0.8)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drawer"]
+bg_color = Color(0.09, 0.1, 0.12, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48, 0.39, 0.26, 0.9)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_home")
+
+[node name="BaseBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.055, 0.06, 0.07, 1)
+
+[node name="InnerVignetteFrame" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="MainLayoutMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 72
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 72
+theme_override_constants/margin_bottom = 64
+
+[node name="Columns" type="HBoxContainer" parent="MainLayoutMargin"]
+layout_mode = 2
+theme_override_constants/separation = 56
+
+[node name="LeftColumn" type="VBoxContainer" parent="MainLayoutMargin/Columns"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HeaderContainer" type="VBoxContainer" parent="MainLayoutMargin/Columns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="MainLayoutMargin/Columns/LeftColumn/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.86, 0.79, 1)
+theme_override_font_sizes/font_size = 46
+text = "KAL KATHA"
+
+[node name="SubtitleLabel" type="Label" parent="MainLayoutMargin/Columns/LeftColumn/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.53, 0.45, 1)
+theme_override_font_sizes/font_size = 14
+text = "THE LIVING CHRONICLE"
+
+[node name="DividerLabel" type="Label" parent="MainLayoutMargin/Columns/LeftColumn/HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.32, 0.24, 1)
+theme_override_font_sizes/font_size = 14
+text = "──────── ◆ ────────"
+
+[node name="SpacerTop" type="Control" parent="MainLayoutMargin/Columns/LeftColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuButtonsContainer" type="VBoxContainer" parent="MainLayoutMargin/Columns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ContinueButton" parent="MainLayoutMargin/Columns/LeftColumn/MenuButtonsContainer" instance=ExtResource("2_hbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+action_id = "continue"
+button_title = "CONTINUE"
+
+[node name="NewJourneyButton" parent="MainLayoutMargin/Columns/LeftColumn/MenuButtonsContainer" instance=ExtResource("2_hbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+action_id = "new_journey"
+button_title = "NEW JOURNEY"
+
+[node name="ChaptersButton" parent="MainLayoutMargin/Columns/LeftColumn/MenuButtonsContainer" instance=ExtResource("2_hbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+action_id = "chapters"
+button_title = "CHAPTERS"
+
+[node name="HistoricalRecordButton" parent="MainLayoutMargin/Columns/LeftColumn/MenuButtonsContainer" instance=ExtResource("2_hbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+action_id = "historical_record"
+button_title = "HISTORICAL RECORD"
+
+[node name="SettingsButton" parent="MainLayoutMargin/Columns/LeftColumn/MenuButtonsContainer" instance=ExtResource("2_hbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+action_id = "settings"
+button_title = "SETTINGS"
+
+[node name="SpacerBottom" type="Control" parent="MainLayoutMargin/Columns/LeftColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FooterContainer" type="VBoxContainer" parent="MainLayoutMargin/Columns/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SaveStatusLabel" type="Label" parent="MainLayoutMargin/Columns/LeftColumn/FooterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.48, 0.42, 1)
+theme_override_font_sizes/font_size = 13
+text = "Journey Status: Reading..."
+
+[node name="VersionLabel" type="Label" parent="MainLayoutMargin/Columns/LeftColumn/FooterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33, 0.31, 0.28, 1)
+theme_override_font_sizes/font_size = 12
+text = "Kal Katha • Prototype"
+
+[node name="RightColumn" type="Control" parent="MainLayoutMargin/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShowcasePanel" type="PanelContainer" parent="MainLayoutMargin/Columns/RightColumn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_showcase")
+
+[node name="ShowcaseMargin" type="MarginContainer" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="DefaultShowcase" type="VBoxContainer" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="EmblemLabel" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/DefaultShowcase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42, 0.36, 0.27, 1)
+theme_override_font_sizes/font_size = 28
+text = "◇
+─── ◆ ───"
+horizontal_alignment = 1
+
+[node name="ShowcaseTitle" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/DefaultShowcase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.61, 0.5, 1)
+theme_override_font_sizes/font_size = 20
+text = "HISTORICAL CHRONICLE CANVAS"
+horizontal_alignment = 1
+
+[node name="ShowcaseSubtitle" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/DefaultShowcase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.4, 0.33, 1)
+theme_override_font_sizes/font_size = 14
+text = "Ancient • Medieval • Modern"
+horizontal_alignment = 1
+
+[node name="ShowcaseNotice" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/DefaultShowcase"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.33, 0.28, 1)
+theme_override_font_sizes/font_size = 13
+text = "Reserved for authenticated historical world scenes & project artwork.
+No generative or placeholder imagery."
+horizontal_alignment = 1
+
+[node name="InfoDrawer" type="PanelContainer" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_drawer")
+
+[node name="DrawerMargin" type="MarginContainer" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 36
+
+[node name="DrawerContent" type="VBoxContainer" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="DrawerCategoryLabel" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin/DrawerContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.58, 0.36, 1)
+theme_override_font_sizes/font_size = 13
+text = "NOTICE"
+
+[node name="DrawerTitleLabel" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin/DrawerContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.86, 0.79, 1)
+theme_override_font_sizes/font_size = 24
+text = "SYSTEM TITLE"
+
+[node name="DrawerDivider" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin/DrawerContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 0.32, 0.24, 1)
+theme_override_font_sizes/font_size = 14
+text = "──────── ◆ ────────"
+
+[node name="DrawerBodyLabel" type="Label" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin/DrawerContent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.76, 0.73, 0.67, 1)
+theme_override_font_sizes/font_size = 16
+text = "Historical explanation details..."
+autowrap_mode = 3
+
+[node name="DrawerDismissButton" type="Button" parent="MainLayoutMargin/Columns/RightColumn/ShowcasePanel/ShowcaseMargin/InfoDrawer/DrawerMargin/DrawerContent"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 44)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "RETURN TO CHRONICLE"

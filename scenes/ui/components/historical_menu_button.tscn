@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/components/historical_menu_button.gd" id="1_hbtn"]
+
+[node name="HistoricalMenuButton" type="Button"]
+custom_minimum_size = Vector2(340, 48)
+offset_right = 340.0
+offset_bottom = 48.0
+flat = true
+alignment = 0
+script = ExtResource("1_hbtn")
